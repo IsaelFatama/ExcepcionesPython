@@ -1,15 +1,9 @@
 #Excepción 5: FileNotFoundError
-def read_file(file_path):
-    try:
-        with open(file_path, 'r') as file:
-            content = file.read()
-            return content
-    except FileNotFoundError as e:
-        print("Error:", str(e))
-        print("Se produjo un FileNotFoundError. No se puede encontrar el archivo especificado.")
-        return None
+archivo = "mi_carpeta/archivo.txt"
 
-file_path = 'nonexistent_file.txt'
-file_content = read_file(file_path)
-if file_content is not None:
-    print("El contenido del archivo es:\n", file_content)
+try:
+    with open(archivo, 'r') as f:
+        contenido = f.read()
+        print(contenido)
+except FileNotFoundError:
+    print("¡Error! El archivo no se encontró.")
